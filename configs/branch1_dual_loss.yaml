@@ -1,0 +1,57 @@
+# Branch 1: Analytical Dual-Loss (Phase 9.5.4)
+#
+# Preprocessing: phase1_enhance (K/gamma + WB + denoise)
+# Loss: calibrated ISP dual loss (bright L1+SSIM + dark ISP L1+SSIM with alpha ramp)
+# SH degree: 2 (max, overridden at runtime)
+
+DATASET:
+  BACKGROUND_COLOR: 255.0
+  DATA_PATH: data/SCENE_NAME    # Replace with actual scene path
+  NAME: SCENE_NAME              # Replace with actual scene name
+
+MODEL:
+  NAME: Simple3DGS
+  NUM_INIT_POINTS: 100000
+  SCENE_SCALE: 2.0
+  SH_DEGREE: 3                  # Config default; overridden to 2 at runtime via sh_degree_max
+  SH_START_STEP: 2500
+  SH_UPGRADE_INTERVAL: 1000
+  TRAIN_TOTAL_STEP: 15000
+  LOG_INTERVAL_STEP: 100
+  VAL_INTERVAL_STEP: 1000
+
+  # Learning rates
+  LR_MEANS: 0.00016
+  LR_MEANS_FINAL: 1.6e-06
+  LR_QUATS: 0.001
+  LR_SCALES: 0.005
+  LR_OPACITIES: 0.05
+  LR_SH0: 0.0025
+  LR_SH0_FINAL: 2.5e-05
+  LR_SHN: 0.000125
+  LR_SHN_FINAL: 1.25e-06
+
+  # Densification
+  DENSIFY_START_STEP: 500
+  DENSIFY_STOP_STEP: 8000
+  DENSIFY_INTERVAL: 100
+  DENSIFY_GRAD_THRESH: 0.0002
+  OPACITY_RESET_INTERVAL: 3000
+
+  # Loss
+  LAMBDA_SSIM: 0.2
+
+# ===== Branch 1 specific parameters (used in notebook/script) =====
+# These are NOT read by train.py config but used by the training script:
+#
+# Preprocessing:
+#   K: 2.75
+#   gamma: 2.25
+#   wb_gains: [1.2, 1.0, 1.05]
+#   denoise_sigma: 1.0
+#
+# Calibrated ISP dual loss:
+#   isp_params_path: pretrained/calibrated_isp.pt
+#   alpha_max: 0.5
+#   alpha_ramp_steps: 3000
+#   lambda_ssim: 0.2

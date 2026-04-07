@@ -1,0 +1,64 @@
+# Branch 3: Frequency-Split Fusion (Phase 9.0.7)
+#
+# Preprocessing: freq_split_enhance (ISP low-freq + RetinexFormer high-freq, YCbCr fusion)
+# Loss: bright_only_loss (L1+SSIM, no tone curve)
+# SH degree: 2 (max, overridden at runtime)
+# Early stop: enabled
+
+DATASET:
+  BACKGROUND_COLOR: 255.0
+  DATA_PATH: data/SCENE_NAME    # Replace with actual scene path
+  NAME: SCENE_NAME              # Replace with actual scene name
+
+MODEL:
+  NAME: Simple3DGS
+  NUM_INIT_POINTS: 100000
+  SCENE_SCALE: 2.0
+  SH_DEGREE: 2
+  SH_START_STEP: 0
+  SH_UPGRADE_INTERVAL: 1000
+  TRAIN_TOTAL_STEP: 15000
+  LOG_INTERVAL_STEP: 100
+  VAL_INTERVAL_STEP: 1000
+
+  # Learning rates
+  LR_MEANS: 0.00016
+  LR_MEANS_FINAL: 1.6e-06
+  LR_QUATS: 0.001
+  LR_SCALES: 0.005
+  LR_OPACITIES: 0.05
+  LR_SH0: 0.0025
+  LR_SH0_FINAL: 2.5e-05
+  LR_SHN: 0.000125
+  LR_SHN_FINAL: 1.25e-06
+
+  # Densification
+  DENSIFY_START_STEP: 500
+  DENSIFY_STOP_STEP: 8000
+  DENSIFY_INTERVAL: 100
+  DENSIFY_GRAD_THRESH: 0.0002
+  OPACITY_RESET_INTERVAL: 3000
+
+  # Loss
+  LAMBDA_SSIM: 0.2
+
+# ===== Branch 3 specific parameters (used in notebook/script) =====
+# These are NOT read by train.py config but used by the training script:
+#
+# Frequency-split fusion:
+#   K: 2.75
+#   gamma: 2.25
+#   isp_params_path: pretrained/calibrated_isp.pt
+#   detail_gain: 2.0
+#   freq_kernel: 3
+#   tile_size: 512
+#   overlap: 64
+#
+# Early stop:
+#   train_patience: 2000
+#   train_check_interval: 500
+#   train_start_check: 7000
+#   min_loss_improvement: 0.001
+#   densify_patience: 1000
+#   densify_min_growth_rate: 0.01
+#   densify_start_check: 3000

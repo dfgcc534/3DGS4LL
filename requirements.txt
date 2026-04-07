@@ -1,0 +1,15 @@
+torch
+torchvision
+gsplat
+numpy
+Pillow
+lpips
+torchmetrics
+PyYAML
+omegaconf
+tqdm
+ninja
+jaxtyping
+timm
+einops
+gdown
