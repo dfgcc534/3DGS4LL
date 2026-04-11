@@ -1,1 +1,50 @@
+# Data
+data/
+datasets/
+
+# Outputs
+outputs/
+results/
+logs/
+
+# Model weights
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+!pretrained/*.pt
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+*.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Experiment tracking
+wandb/
+mlruns/
+tensorboard/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# External models (auto-downloaded)
+external/
