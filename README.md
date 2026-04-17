@@ -2,7 +2,6 @@
 
 ### 2nd Place — NTIRE 2026 Challenge on 3D Low-Light Enhancement (CVPR Workshop)
 
-<!-- TODO: Download architecture figure from https://huggingface.co/datasets/ToferFish/RealX3D and place at assets/architecture.png -->
 <p align="center">
   <img src="assets/architecture.png" width="100%">
 </p>
@@ -10,9 +9,9 @@
 > **3DGS4LL: Multi-Branch Low-Light 3D Gaussian Splatting with Calibrated ISP
 > Supervision and Frequency-Split Pseudo-Target Fusion**
 >
-> Seho Ahn, Donggun Kim, Il-Youp Kwak, Seungsang Oh
+> Seho Ahn<sup>*</sup>, Donggun Kim, Il-Youp Kwak<sup>†</sup>, Seungsang Oh<sup>†</sup>
 >
-> [[arXiv](https://arxiv.org/abs/XXXX.XXXXX)] [[Paper PDF](link)]
+> <sup>*</sup> First author &nbsp;&nbsp;&nbsp; <sup>†</sup> Co-corresponding authors
 
 ## Highlights
 
@@ -35,17 +34,10 @@
 | 3DGS4LL — 2-branch average (this repo) | 22.51 | 0.765 | — |
 | 3DGS4LL — 5-model ensemble (competition) | 22.76 | 0.777 | — |
 
-### Qualitative Comparison
-
-<!-- TODO: Download qualitative comparison figure from https://huggingface.co/datasets/ToferFish/RealX3D and place at assets/qualitative.png -->
-<p align="center">
-  <img src="assets/qualitative.png" width="100%">
-</p>
-
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/3DGS4LL.git
+git clone https://github.com/dfgcc534/3DGS4LL.git
 cd 3DGS4LL
 pip install -r requirements.txt
 ```
@@ -146,7 +138,7 @@ from severely degraded multi-view observations (R=40 exposure reduction).
 - **SH degree 2**: Limits angular color bandwidth to prevent noise overfitting with limited training views (~20-30 per scene)
 - **Random initialization**: Replaces COLMAP sparse points, which are unreliable under extreme low-light
 
-For full details, please refer to our [paper](https://arxiv.org/abs/XXXX.XXXXX) and [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
+For full details, please refer to [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
 
 ## Note on Differences from Competition Submission
 
@@ -162,18 +154,16 @@ provides the streamlined two-branch version, which we recommend as the default.
 - **RetinexFormer** (LOL_v1): Pre-trained low-light enhancement model (auto-downloaded from GitHub)
   - Paper: Cai et al., "Retinexformer: One-stage Retinex-based Transformer for Low-light Image Enhancement", ICCV 2023
 
-## Citation
+## Author Contributions
 
-If you find this work useful, please consider citing:
+**Seho Ahn** (first author) conceived the method, implemented the entire codebase in
+this repository, and conducted all experiments and evaluations for the NTIRE 2026 3DRR
+Challenge submission.
 
-```bibtex
-@article{ahn2026_3dgs4ll,
-  title={3DGS4LL: Multi-Branch Low-Light 3D Gaussian Splatting with Calibrated ISP Supervision and Frequency-Split Pseudo-Target Fusion},
-  author={Ahn, Seho and Kim, Donggun and Kwak, Il-Youp and Oh, Seungsang},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2026}
-}
-```
+**Donggun Kim** (second author) contributed to research discussions.
+
+**Il-Youp Kwak** and **Seungsang Oh** (co-corresponding authors) provided advisory
+support and research supervision.
 
 ## Acknowledgements
 
