@@ -11,6 +11,8 @@
 >
 > Seho Ahn<sup>*</sup>, Donggun Kim, Il-Youp Kwak<sup>†</sup>, Seungsang Oh<sup>†</sup>
 >
+> *All methods, code, and experiments developed by Seho Ahn.*
+>
 > <sup>*</sup> First author &nbsp;&nbsp;&nbsp; <sup>†</sup> Co-corresponding authors
 
 ## Highlights
