@@ -2,6 +2,8 @@
 
 ### 2nd Place — NTIRE 2026 Challenge on 3D Low-Light Enhancement (CVPR Workshop)
 
+Official challenge report: [NTIRE 2026 3D Restoration and Reconstruction in Real-world Adverse Conditions: RealX3D Challenge Results](https://arxiv.org/abs/2604.04135) (Liu et al., CVPR Workshops 2026)
+
 <p align="center">
   <img src="assets/architecture.png" width="100%">
 </p>
